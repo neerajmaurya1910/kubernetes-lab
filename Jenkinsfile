@@ -27,19 +27,19 @@ pipeline {
 
         stage('Verify Deployment') {
             steps {
-                sh 'kubectl get deployment lab-set02'
-                sh 'kubectl get pods -l app=lab-set02 -o wide'
-                sh 'kubectl describe deployment lab-set02'
+                sh 'kubectl get deployment lab-sample-app'
+                sh 'kubectl get pods -l app=lab-sample-app -o wide'
+                sh 'kubectl describe deployment lab-sample-app'
             }
         }
     }
 
     post {
         success {
-            echo 'SET 2 PASSED: Sample application deployed successfully.'
+            echo 'PASSED: Sample application deployed successfully.'
         }
         failure {
-            echo 'SET 2 FAILED: Check the console output.'
+            echo 'FAILED: Check the console output.'
         }
     }
 }
